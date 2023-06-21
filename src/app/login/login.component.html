@@ -1,0 +1,19 @@
+<button mat-icon-button [matMenuTriggerFor]="loginMenu" *ngIf="!loginDisplay">
+  <mat-icon>lock</mat-icon>
+</button>
+<mat-menu #loginMenu="matMenu">
+  <button mat-menu-item (click)="loginRedirect()">Login using Redirect</button>
+  <button mat-menu-item (click)="loginPopup()">Login using Popup</button>
+</mat-menu>
+
+<button mat-icon-button *ngIf="loginDisplay" [routerLink]="['profile']">
+  <mat-icon>person</mat-icon>
+</button>
+
+<button mat-icon-button [matMenuTriggerFor]="logoutMenu" *ngIf="loginDisplay">
+  <mat-icon>lock_open</mat-icon>
+</button>
+<mat-menu #logoutMenu="matMenu">
+  <button mat-menu-item (click)="logout()">Logout using Redirect</button>
+  <button mat-menu-item (click)="logout(true)">Logout using Popup</button>
+</mat-menu>
